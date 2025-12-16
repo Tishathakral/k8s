@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: k8learnings
+spec:
+  replicas: 5
+  selector:
+    matchLabels: 
+      app: k8backend
+  template: 
+    metadata:
+      labels:
+        app: k8backend
+    spec:
+      containers: 
+      - name: backend
+        image: tishathakral/k8learnings-backend
+        ports: 
+        - containerPort: 5000
