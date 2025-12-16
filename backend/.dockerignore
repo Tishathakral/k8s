@@ -9,6 +9,7 @@ yarn.lock
 .env
 .env.local
 .env.*.local
+.cursor
 
 # Git
 .git

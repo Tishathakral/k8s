@@ -1,8 +1,8 @@
 import {Pool} from 'pg'
 import express from 'express';
-
+import cors from 'cors';
 // Database connection pool configuration
-const connectionString = 'postgresql://postgres:postgres@localhost:5432/mydb';
+const connectionString = 'postgres://postgres:postgres@db.default.svc.cluster.local:5432/postgres';
 
 const pool = new Pool({
   connectionString: connectionString,
@@ -42,9 +42,10 @@ async function initTable() {
 
 // Express setup
 const app = express();
-const PORT = 3000;
-
+const PORT = 5000;
+app.use(cors());
 app.use(express.json());
+
 
 // Initialize database on startup
 (async () => {
