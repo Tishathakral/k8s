@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: ticha-replicas
+spec:
+  replicas: 5
+  selector:
+    matchLabels: 
+      app: tichu
+  template: 
+    metadata:
+      labels:
+        app: tichu
+    spec:
+      containers: 
+      - name: nginx
+        image: nginx
+        ports: 
+        - containerPort: 80
