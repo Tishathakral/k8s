@@ -17,6 +17,17 @@ spec:
         image: tishathakral/k8learnings-backend
         ports: 
         - containerPort: 5000
+        env:
+        - name: DATABASE_URL
+          valueFrom: 
+            configMapKeyRef:
+              name: backend-configmap
+              key: database_url
+        - name: PORT
+          valueFrom: 
+            configMapKeyRef:
+              name: backend-configmap
+              key: port
 ---
 apiVersion: v1
 kind: Service

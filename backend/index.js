@@ -1,8 +1,10 @@
 import {Pool} from 'pg'
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
 // Database connection pool configuration
-const connectionString = 'postgres://postgres:postgres@db.default.svc.cluster.local:5432/postgres';
+const connectionString = process.env.DATABASE_URL;
 
 const pool = new Pool({
   connectionString: connectionString,
@@ -42,7 +44,7 @@ async function initTable() {
 
 // Express setup
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
