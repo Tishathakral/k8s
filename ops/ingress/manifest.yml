@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress 
+metadata:
+  name: learning-ingress
+spec: 
+  ingressClassName: nginx
+  rules:
+  - host: be.narottamchy.in
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: k8learnings-service
+            port:
+              number: 5000
+  - host: fe.narottamchy.in
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: k8learnings-frontend-service
+            port:
+              number: 3000
