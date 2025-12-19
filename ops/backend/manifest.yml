@@ -21,12 +21,12 @@ spec:
         - name: DATABASE_URL
           valueFrom: 
             configMapKeyRef:
-              name: backend-configmap
+              name: backend-secrets
               key: database_url
         - name: PORT
           valueFrom: 
             configMapKeyRef:
-              name: backend-configmap
+              name: backend-secrets
               key: port
 ---
 apiVersion: v1
