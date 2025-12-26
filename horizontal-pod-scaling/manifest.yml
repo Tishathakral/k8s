@@ -17,6 +17,11 @@ spec:
         image: 100xdevs/week-28:latest
         ports:
         - containerPort: 3000
+        resources:
+          limits: 
+            cpu: "1000m"
+          requests:
+            cpu: "100m"
 ---
 apiVersion: v1
 kind: Service
